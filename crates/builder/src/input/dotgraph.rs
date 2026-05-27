@@ -12,7 +12,7 @@ use std::{
 
 use atomic::Atomic;
 use dashmap::DashMap;
-use fxhash::FxHashMap;
+use rustc_hash::FxHashMap;
 use linereader::LineReader;
 use rayon::prelude::*;
 

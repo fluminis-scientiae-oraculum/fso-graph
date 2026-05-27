@@ -17,7 +17,7 @@ bytemuck.workspace = true
 dashmap.workspace = true
 delegate.workspace = true
 fast-float2.workspace = true
-fxhash.workspace = true
+rustc-hash.workspace = true
 gdl = { workspace = true, optional = true }
 linereader.workspace = true
 log.workspace = true
