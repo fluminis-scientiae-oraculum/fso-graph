@@ -1,5 +1,12 @@
 # graph_builder
 
+> **Fork notice.** This crate is published on crates.io as `fso-graph-builder`,
+> a community-maintained fork of [`graph_builder`](https://crates.io/crates/graph_builder)
+> by [neo4j-labs/graph](https://github.com/neo4j-labs/graph). Fork lives at
+> [fluminis-scientiae-oraculum/fso-graph](https://github.com/fluminis-scientiae-oraculum/fso-graph)
+> and is maintained by Aditya Kresna. Upstream attribution preserved in
+> `LICENSE` and the authors list of each crate manifest.
+
 A library that can be used as a building block for high-performant graph
 algorithms.
 

@@ -36,3 +36,6 @@ file = "pyproject.toml"
 search = "^version = \".+\"$"
 replace = "version = \"{{version}}\""
 exactly = 1
+
+[lints]
+workspace = true
