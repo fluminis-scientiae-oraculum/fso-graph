@@ -20,12 +20,12 @@ use arrow_flight::{
     FlightDescriptor, FlightInfo, HandshakeRequest, HandshakeResponse, PollInfo, PutResult,
     SchemaAsIpc, SchemaResult, Ticket,
 };
-use futures::stream::BoxStream;
-use futures::StreamExt;
 use fso_graph::page_rank::PageRankConfig;
 use fso_graph::prelude::Components;
 use fso_graph::prelude::DeltaSteppingConfig;
 use fso_graph::prelude::WccConfig;
+use futures::stream::BoxStream;
+use futures::StreamExt;
 use log::error;
 use log::info;
 use parking_lot::RwLock;

@@ -7,6 +7,53 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+## [fso-graph-v0.3.3 + fso-graph-builder-v0.4.2] - 2026-05-28
+
+This release republishes the workspace on crates.io under new names
+following a fork of [neo4j-labs/graph](https://github.com/neo4j-labs/graph)
+by [fluminis-scientiae-oraculum/fso-graph](https://github.com/fluminis-scientiae-oraculum/fso-graph),
+maintained by Aditya Kresna. Upstream attribution preserved in `LICENSE`
+and the authors list of each crate manifest.
+
+### Renamed
+
+- `graph` crate → published as `fso-graph` (Rust import: `fso_graph::*`).
+  Carried over as v0.3.3 (continuous patch bump from upstream 0.3.2).
+- `graph_builder` crate → published as `fso-graph-builder` (Rust import:
+  `fso_graph_builder::*`). Carried over as v0.4.2 (continuous patch
+  bump from upstream 0.4.1).
+- `graph_app`, `graph_mate`, `graph_server` remain `publish = false` and
+  keep their existing internal names.
+
+### Security
+
+- Replace unmaintained `fxhash 0.2.1` with `rustc-hash 2.x` to clear
+  RUSTSEC-2025-0057. Drop-in: `FxHashMap` type alias is API-identical
+  across the two crates; only the import path changes.
+- Replace pinned git dependency `kommandozeile` (in `graph_app`) with
+  stock `clap` derive + `clap-verbosity-flag` + `anyhow`. Removes
+  transitive `atty 0.2.14` (RUSTSEC-2024-0375 unmaintained,
+  RUSTSEC-2021-0145 unsound). `cargo audit` now reports 0 advisories.
+
+### Changed
+
+- Codify clippy policy in `[workspace.lints]` with
+  `clippy::all = { level = "deny", priority = -1 }` so the policy is
+  honored by IDEs and any local `cargo` invocation, not just the CI
+  step. Per-crate overrides remain possible at higher priority. The
+  existing `[lints.rust]` `unexpected_cfgs` block in `graph_builder` is
+  lifted to the workspace.
+- LICENSE updated to dual-copyright: `Copyright (c) 2026 Aditya Kresna`
+  added above the original `Copyright (c) 2021 Neo4j Sweden AB`.
+- Workspace `repository` flipped to
+  `https://github.com/fluminis-scientiae-oraculum/fso-graph`; Aditya
+  Kresna prepended to the workspace authors list while upstream
+  maintainers stay credited.
+- README rewrites with fork-notice blocks linking to upstream and the
+  new repo / crates.io targets.
+
+## Previous unreleased entry (carried forward from upstream prep)
+
 ### Security
 
 - Replace `tokio-tar 0.3.1` with `astral-tokio-tar 0.6.2` to address

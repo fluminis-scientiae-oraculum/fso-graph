@@ -12,9 +12,9 @@ use std::{
 
 use atomic::Atomic;
 use dashmap::DashMap;
-use rustc_hash::FxHashMap;
 use linereader::LineReader;
 use rayon::prelude::*;
+use rustc_hash::FxHashMap;
 
 use crate::{
     graph::csr::{sort_targets, Csr},

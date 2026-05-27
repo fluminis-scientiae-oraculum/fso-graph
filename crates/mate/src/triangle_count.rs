@@ -1,4 +1,6 @@
-use fso_graph::prelude::{global_triangle_count as tc, Graph as GraphTrait, Idx, UndirectedNeighbors};
+use fso_graph::prelude::{
+    global_triangle_count as tc, Graph as GraphTrait, Idx, UndirectedNeighbors,
+};
 use pyo3::prelude::*;
 use std::time::{Duration, Instant};
 
