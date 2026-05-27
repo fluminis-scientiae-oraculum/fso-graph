@@ -1,5 +1,5 @@
 use crate::graphs::SharedSlice;
-use graph::prelude::{
+use fso_graph::prelude::{
     page_rank as graph_page_rank, DirectedDegrees, DirectedNeighbors, Graph as GraphTrait, Idx,
     PageRankConfig,
 };

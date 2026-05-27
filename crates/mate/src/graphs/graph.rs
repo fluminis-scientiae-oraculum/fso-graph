@@ -1,6 +1,6 @@
 use super::{FileFormat, Layout, PyGraph};
 use crate::triangle_count::TriangleCountResult;
-use graph::prelude::UndirectedCsrGraph;
+use fso_graph::prelude::UndirectedCsrGraph;
 use numpy::{PyArray1, PyArray2};
 use pyo3::{prelude::*, types::PyList};
 use std::path::PathBuf;

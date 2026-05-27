@@ -1,33 +1,41 @@
-# graph &emsp; [![GitHub Actions workflow status]][actions] [![Latest version on crates.io]][crates.io] [![Latest version on PyPI]][pypi.org] [![License: MIT]][license]
+# fso-graph &emsp; [![GitHub Actions workflow status]][actions] [![Latest version on crates.io]][crates.io] [![Latest version on PyPI]][pypi.org] [![License: MIT]][license]
 
-[GitHub Actions workflow status]: https://img.shields.io/github/actions/workflow/status/neo4j-labs/graph/rust.yml?branch=main&label=CI&style=flat-square
-[actions]: https://github.com/neo4j-labs/graph/actions/workflows/rust.yml?query=branch%3Amain
-[Latest version on crates.io]: https://img.shields.io/crates/v/graph?style=flat-square
-[crates.io]: https://crates.io/crates/graph/
+[GitHub Actions workflow status]: https://img.shields.io/github/actions/workflow/status/fluminis-scientiae-oraculum/fso-graph/rust.yml?branch=main&label=CI&style=flat-square
+[actions]: https://github.com/fluminis-scientiae-oraculum/fso-graph/actions/workflows/rust.yml?query=branch%3Amain
+[Latest version on crates.io]: https://img.shields.io/crates/v/fso-graph?style=flat-square
+[crates.io]: https://crates.io/crates/fso-graph/
 [Latest version on PyPI]: https://img.shields.io/pypi/v/graph-mate?style=flat-square
 [pypi.org]: https://pypi.org/project/graph-mate/
-[License: MIT]: https://img.shields.io/crates/l/graph?style=flat-square
+[License: MIT]: https://img.shields.io/crates/l/fso-graph?style=flat-square
 [license]: https://choosealicense.com/licenses/mit/
 
+> **Fork notice.** `fso-graph` and `fso-graph-builder` are
+> community-maintained forks of [`graph`](https://crates.io/crates/graph)
+> and [`graph_builder`](https://crates.io/crates/graph_builder) by
+> [neo4j-labs/graph](https://github.com/neo4j-labs/graph). Fork lives at
+> [fluminis-scientiae-oraculum/fso-graph](https://github.com/fluminis-scientiae-oraculum/fso-graph)
+> and is maintained by Aditya Kresna. Rust import paths are `fso_graph::*`
+> and `fso_graph_builder::*`. Upstream attribution is preserved in
+> `LICENSE` and the authors list of each crate manifest.
 
 A library that provides a collection of high-performant graph algorithms.
-This crate builds on top of the [graph_builder](https://docs.rs/graph_builder/latest/)
+This crate builds on top of the [fso-graph-builder](https://docs.rs/fso-graph-builder/latest/)
 crate, which can be used as a building block for custom graph algorithms.
 
-`graph_builder` provides implementations for directed and undirected graphs.
+`fso-graph-builder` provides implementations for directed and undirected graphs.
 Graphs can be created programatically or read from custom input formats in a
 type-safe way. The library uses [rayon](https://github.com/rayon-rs/rayon)
 to parallelize all steps during graph creation. The implementation uses a
 Compressed-Sparse-Row (CSR) data structure which is tailored for fast and
  concurrent access to the graph topology.
 
-`graph` provides graph algorithms which take graphs created using `graph_builder`
+`fso-graph` provides graph algorithms which take graphs created using `fso-graph-builder`
 as input. The algorithm implementations are designed to run efficiently on
 large-scale graphs with billions of nodes and edges.
 
-**Note**: The development is mainly driven by
+**Note**: Upstream development is mainly driven by
 [Neo4j](https://github.com/neo4j/neo4j) developers. However, the library is
-__not__ an official product of Neo4j.
+__not__ an official product of Neo4j, and this fork is independently maintained.
 
 ## What is a graph?
 
@@ -44,7 +52,7 @@ In an undirected graph there is no distinction between source and target
 node. A neighbor of node `u` is any node `v` for which either an edge `(u,
 v)` or `(v, u)` exists.
 
-## How to use graph?
+## How to use fso-graph?
 
 The library provides a builder that can be used to construct a graph from a
 given list of edges.
@@ -53,7 +61,7 @@ For example, to create a directed graph that uses `usize` as node
 identifier, one can use the builder like so:
 
 ```rust
-use graph::prelude::*;
+use fso_graph::prelude::*;
 
 let graph: DirectedCsrGraph<usize> = GraphBuilder::new()
     .csr_layout(CsrLayout::Sorted)
@@ -74,7 +82,7 @@ To build an undirected graph using `u32` as node identifer, we only need to
 change the expected types:
 
 ```rust
-use graph::prelude::*;
+use fso_graph::prelude::*;
 
 let graph: UndirectedCsrGraph<u32> = GraphBuilder::new()
     .csr_layout(CsrLayout::Sorted)
@@ -89,7 +97,7 @@ assert_eq!(graph.degree(1), 3);
 assert_eq!(graph.neighbors(1).as_slice(), &[0, 2, 3]);
 ```
 
-Check out the [graph_builder](https://docs.rs/graph_builder/latest/) crate for
+Check out the [fso-graph-builder](https://docs.rs/fso-graph-builder/latest/) crate for
 for more examples on how to build graphs from various input formats.
 
 ## How to run algorithms
@@ -101,7 +109,7 @@ number and quality of their incoming edges.
 Page Rank requires a directed graph and returns the rank value for each node.
 
 ```rust
-use graph::prelude::*;
+use fso_graph::prelude::*;
 
 // https://en.wikipedia.org/wiki/PageRank#/media/File:PageRanks-Example.svg
 let graph: DirectedCsrGraph<usize> = GraphBuilder::new()

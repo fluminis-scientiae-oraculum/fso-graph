@@ -3,7 +3,7 @@ use std::{path::PathBuf, time::Instant};
 use anyhow::Result;
 use clap::Parser;
 use clap_verbosity_flag::{InfoLevel, Verbosity};
-use graph::prelude::*;
+use fso_graph::prelude::*;
 use log::info;
 
 use crate::runner::gen_runner;
@@ -13,9 +13,9 @@ mod runner;
 mod serialize;
 mod triangle_count;
 
-gen_runner!(directed+unweighted: page_rank, graph::page_rank::page_rank, PageRankConfig);
-gen_runner!(directed+unweighted: wcc, graph::wcc::wcc_afforest_dss, WccConfig);
-gen_runner!(directed+weighted: sssp, graph::sssp::delta_stepping, DeltaSteppingConfig, f32);
+gen_runner!(directed+unweighted: page_rank, fso_graph::page_rank::page_rank, PageRankConfig);
+gen_runner!(directed+unweighted: wcc, fso_graph::wcc::wcc_afforest_dss, WccConfig);
+gen_runner!(directed+weighted: sssp, fso_graph::sssp::delta_stepping, DeltaSteppingConfig, f32);
 
 fn main() -> Result<()> {
     let args = Args::parse();

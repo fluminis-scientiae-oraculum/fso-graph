@@ -22,10 +22,10 @@ use arrow_flight::{
 };
 use futures::stream::BoxStream;
 use futures::StreamExt;
-use graph::page_rank::PageRankConfig;
-use graph::prelude::Components;
-use graph::prelude::DeltaSteppingConfig;
-use graph::prelude::WccConfig;
+use fso_graph::page_rank::PageRankConfig;
+use fso_graph::prelude::Components;
+use fso_graph::prelude::DeltaSteppingConfig;
+use fso_graph::prelude::WccConfig;
 use log::error;
 use log::info;
 use parking_lot::RwLock;
@@ -362,7 +362,7 @@ async fn to_relabeled_graph(
         let mut catalog = graph_catalog.write();
         let graph = catalog.get_mut(graph_name)?;
         if let GraphType::Undirected(graph) = graph {
-            use graph::prelude::RelabelByDegreeOp;
+            use fso_graph::prelude::RelabelByDegreeOp;
             let start = Instant::now();
             graph.make_degree_ordered();
             Ok(ToRelabeledResult {
@@ -391,7 +391,7 @@ async fn to_undirected_graph(
     } = config;
 
     let result = tokio::task::spawn_blocking(move || -> Result<ToUndirectedResult, Status> {
-        use graph::prelude::ToUndirectedOp;
+        use fso_graph::prelude::ToUndirectedOp;
         let mut catalog = graph_catalog.write();
         let graph_type = catalog.get_mut(graph_name.as_str())?;
         let csr_layout = Some(csr_layout);
@@ -434,7 +434,7 @@ async fn compute_page_rank(
 
         if let GraphType::Directed(graph) = catalog.get(catalog_key).unwrap() {
             let start = Instant::now();
-            let (ranks, iterations, error) = graph::page_rank::page_rank(graph, config);
+            let (ranks, iterations, error) = fso_graph::page_rank::page_rank(graph, config);
             let result = PageRankResult {
                 iterations: iterations as u64,
                 error,
@@ -474,7 +474,7 @@ async fn compute_triangle_count(
         let catalog = graph_catalog.read();
         if let GraphType::Undirected(graph) = catalog.get(graph_name).unwrap() {
             let start = Instant::now();
-            let tc = graph::triangle_count::global_triangle_count(graph);
+            let tc = fso_graph::triangle_count::global_triangle_count(graph);
             let res = TriangleCountResult {
                 triangle_count: tc,
                 compute_millis: start.elapsed().as_millis(),
@@ -508,7 +508,7 @@ async fn compute_sssp(
 
         if let GraphType::DirectedWeighted(graph) = catalog.get(catalog_key).unwrap() {
             let start = Instant::now();
-            let distances = graph::sssp::delta_stepping(graph, config);
+            let distances = fso_graph::sssp::delta_stepping(graph, config);
             let result = SsspResult {
                 compute_millis: start.elapsed().as_millis(),
             };
@@ -556,7 +556,7 @@ async fn compute_wcc(
 
         if let GraphType::Directed(graph) = catalog.get(catalog_key).unwrap() {
             let start = Instant::now();
-            let components = graph::wcc::wcc_afforest(graph, config);
+            let components = fso_graph::wcc::wcc_afforest(graph, config);
             let result = WccResult {
                 compute_millis: start.elapsed().as_millis(),
             };

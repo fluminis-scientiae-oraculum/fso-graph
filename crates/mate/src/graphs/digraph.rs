@@ -1,6 +1,6 @@
 use super::{FileFormat, Graph, Layout, PyGraph};
 use crate::{page_rank::PageRankResult, wcc::WccResult};
-use graph::{
+use fso_graph::{
     page_rank::PageRankConfig,
     prelude::{CsrLayout, DirectedCsrGraph},
     wcc::WccConfig,

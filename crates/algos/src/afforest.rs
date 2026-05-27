@@ -62,7 +62,7 @@ impl<NI: Idx> Afforest<NI> {
     /// # Examples
     ///
     /// ```
-    /// use graph::prelude::*;
+    /// use fso_graph::prelude::*;
     ///
     /// let af = Afforest::new(3);
     /// af.union(0, 1);

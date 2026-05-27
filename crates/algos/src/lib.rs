@@ -42,7 +42,7 @@
 //! identifier, one can use the builder like so:
 //!
 //! ```
-//! use graph::prelude::*;
+//! use fso_graph::prelude::*;
 //!
 //! let graph: DirectedCsrGraph<usize> = GraphBuilder::new()
 //!     .csr_layout(CsrLayout::Sorted)
@@ -63,7 +63,7 @@
 //! change the expected types:
 //!
 //! ```
-//! use graph::prelude::*;
+//! use fso_graph::prelude::*;
 //!
 //! let graph: UndirectedCsrGraph<u32> = GraphBuilder::new()
 //!     .csr_layout(CsrLayout::Sorted)
@@ -90,7 +90,7 @@
 //! Page Rank requires a directed graph and returns the rank value for each node.
 //!
 //! ```
-//! use graph::prelude::*;
+//! use fso_graph::prelude::*;
 //!
 //! // https://en.wikipedia.org/wiki/PageRank#/media/File:PageRanks-Example.svg
 //! let graph: DirectedCsrGraph<usize> = GraphBuilder::new()

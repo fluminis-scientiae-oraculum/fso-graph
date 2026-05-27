@@ -1,4 +1,4 @@
-use graph::prelude::{DirectedNeighbors, Idx, UndirectedNeighbors};
+use fso_graph::prelude::{DirectedNeighbors, Idx, UndirectedNeighbors};
 use numpy::{
     npyffi::{types::NPY_TYPES, NpyTypes, NPY_ARRAY_DEFAULT, NPY_ARRAY_WRITEABLE},
     PyArray1, PY_ARRAY_API,

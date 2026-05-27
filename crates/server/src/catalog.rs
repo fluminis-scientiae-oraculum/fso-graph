@@ -5,7 +5,7 @@ use arrow::{
     record_batch::RecordBatch,
 };
 use arrow_flight::Ticket;
-use graph::prelude::*;
+use fso_graph::prelude::*;
 use serde::{Deserialize, Serialize};
 use tonic::Status;
 
@@ -141,7 +141,7 @@ impl GraphType {
     }
 }
 
-fn from_graph_error(error: graph::prelude::Error) -> Status {
+fn from_graph_error(error: fso_graph::prelude::Error) -> Status {
     Status::internal(format!("GraphError: {error:?}"))
 }
 

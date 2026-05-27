@@ -1,5 +1,5 @@
 use crate::GraphError as GraphErrorWrapper;
-use ::graph::prelude::{
+use ::fso_graph::prelude::{
     CsrLayout, DirectedDegrees, DirectedNeighbors, EdgeList, EdgeListInput, Edges,
     Error as GraphError, Graph as GraphTrait, Graph500, Graph500Input, GraphBuilder, Idx,
     InputCapabilities, InputPath, RelabelByDegreeOp, ToUndirectedOp, UndirectedDegrees,

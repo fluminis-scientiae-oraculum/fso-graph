@@ -1,5 +1,5 @@
 use crate::graphs::{NumpyType, SharedSlice};
-use graph::prelude::{
+use fso_graph::prelude::{
     wcc_afforest as graph_wcc, Components, DirectedDegrees, DirectedNeighbors, Graph as GraphTrait,
     Idx, WccConfig,
 };

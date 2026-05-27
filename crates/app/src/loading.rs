@@ -1,4 +1,4 @@
-use graph::prelude::*;
+use fso_graph::prelude::*;
 
 use byte_slice_cast::ToByteSlice;
 use log::info;

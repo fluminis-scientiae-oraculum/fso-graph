@@ -1,7 +1,7 @@
 macro_rules! gen_runner {
     (directed+unweighted: $algo_name:ident, $algo_func:expr, $algo_config:ty) => {
         mod $algo_name {
-            use graph::prelude::*;
+            use fso_graph::prelude::*;
             crate::gen_runner!(__entry: $algo_config);
             crate::gen_runner!(__run_file_format_all: $algo_config, ());
             crate::gen_runner!(__run_graph_format: $algo_config, ());
@@ -11,7 +11,7 @@ macro_rules! gen_runner {
 
     (directed+weighted: $algo_name:ident, $algo_func:expr, $algo_config:ty, $ev_type:ty) => {
         mod $algo_name {
-            use graph::prelude::*;
+            use fso_graph::prelude::*;
             crate::gen_runner!(__entry: $algo_config);
             crate::gen_runner!(__run_file_format_edge_list: $algo_config, $ev_type);
             crate::gen_runner!(__run_graph_format: $algo_config, $ev_type);

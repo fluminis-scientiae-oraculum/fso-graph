@@ -1,6 +1,6 @@
 #![allow(clippy::borrow_deref_ref)]
 
-use ::graph::prelude::Error as GError;
+use ::fso_graph::prelude::Error as GError;
 use pyo3::conversion::IntoPyObjectExt;
 use pyo3::{
     exceptions::PyValueError,

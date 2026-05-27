@@ -1,4 +1,4 @@
-use graph::prelude::*;
+use fso_graph::prelude::*;
 use log::info;
 use polars::prelude::*;
 

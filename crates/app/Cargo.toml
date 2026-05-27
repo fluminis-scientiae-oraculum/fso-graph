@@ -24,7 +24,7 @@ pico-args.workspace = true
 rayon.workspace = true
 polars.workspace = true
 
-[dependencies.graph]
+[dependencies.fso-graph]
 path = "../algos"
 version = "^0.3.2"
 features = ["clap"]

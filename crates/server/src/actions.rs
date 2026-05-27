@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use tonic::Status;
 
 use crate::{catalog::PropertyId, server::FlightResult};
-use graph::prelude::*;
+use fso_graph::prelude::*;
 
 #[derive(Debug)]
 pub enum FlightAction {
