@@ -1,10 +1,12 @@
 use std::{path::PathBuf, time::Instant};
 
+use anyhow::Result;
+use clap::Parser;
+use clap_verbosity_flag::{InfoLevel, Verbosity};
 use graph::prelude::*;
+use log::info;
 
 use crate::runner::gen_runner;
-use kommandozeile::*;
-use log::info;
 
 mod loading;
 mod runner;
@@ -16,10 +18,10 @@ gen_runner!(directed+unweighted: wcc, graph::wcc::wcc_afforest_dss, WccConfig);
 gen_runner!(directed+weighted: sssp, graph::sssp::delta_stepping, DeltaSteppingConfig, f32);
 
 fn main() -> Result<()> {
-    let args = setup_clap::<Args>().run()?;
-    let filter_string = args.verbose.verbosity().as_filter_for_all();
-    std::env::set_var("RUST_LOG", filter_string);
-    env_logger::init();
+    let args = Args::parse();
+    env_logger::Builder::new()
+        .filter_level(args.verbose.log_level_filter())
+        .init();
 
     match args.algorithm {
         Algorithm::PageRank { config } => page_rank::run(args.args, config)?,
@@ -39,36 +41,36 @@ fn main() -> Result<()> {
 }
 
 #[derive(Debug, clap::Parser)]
-#[clap(author, version, about, propagate_version = true)]
+#[command(author, version, about, propagate_version = true)]
 struct Args {
-    #[clap(flatten)]
+    #[command(flatten)]
     args: CommonArgs,
 
-    #[clap(subcommand)]
+    #[command(subcommand)]
     algorithm: Algorithm,
 
-    #[clap(flatten)]
-    verbose: Verbose<Global>,
+    #[command(flatten)]
+    verbose: Verbosity<InfoLevel>,
 }
 
 #[derive(Debug, clap::Args)]
 struct CommonArgs {
-    #[clap(short, long, value_parser)]
+    #[arg(short, long, value_parser)]
     path: PathBuf,
 
-    #[clap(short, long, value_enum, default_value_t = FileFormat::EdgeList)]
+    #[arg(short, long, value_enum, default_value_t = FileFormat::EdgeList)]
     format: FileFormat,
 
-    #[clap(short, long, value_enum, default_value_t = GraphFormat::CompressedSparseRow)]
+    #[arg(short, long, value_enum, default_value_t = GraphFormat::CompressedSparseRow)]
     graph: GraphFormat,
 
-    #[clap(long)]
+    #[arg(long)]
     use_32_bit: bool,
 
-    #[clap(short, long, default_value_t = 1)]
+    #[arg(short, long, default_value_t = 1)]
     runs: usize,
 
-    #[clap(short, long, default_value_t = 5)]
+    #[arg(short, long, default_value_t = 5)]
     warmup_runs: usize,
 }
 
@@ -87,36 +89,36 @@ enum FileFormat {
 #[derive(clap::Subcommand, Debug)]
 enum Algorithm {
     PageRank {
-        #[clap(flatten)]
+        #[command(flatten)]
         config: PageRankConfig,
     },
     Sssp {
-        #[clap(flatten)]
+        #[command(flatten)]
         config: DeltaSteppingConfig,
     },
     TriangleCount {
-        #[clap(long)]
+        #[arg(long)]
         relabel: bool,
     },
 
     Wcc {
-        #[clap(flatten)]
+        #[command(flatten)]
         config: WccConfig,
     },
     Loading {
         /// Load the graph as undirected.
-        #[clap(long)]
+        #[arg(long)]
         undirected: bool,
         /// Load the graph as weighted.
-        #[clap(long)]
+        #[arg(long)]
         weighted: bool,
     },
     Serialize {
         /// Path to serialize graph to.
-        #[clap(short, long, value_parser)]
+        #[arg(short, long, value_parser)]
         output: PathBuf,
         /// Load the graph as undirected.
-        #[clap(long)]
+        #[arg(long)]
         undirected: bool,
     },
 }

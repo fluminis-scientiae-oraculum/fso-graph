@@ -16,6 +16,7 @@ license = "MIT"
 
 [workspace.dependencies]
 ahash = "0.8.12"
+anyhow = "1"
 arrow = "58"
 arrow-flight = "58"
 async-compression = { version = "0.4", features = ["tokio", "zstd"] }
@@ -27,6 +28,7 @@ atomic_float = "1.1"
 byte-slice-cast = "1.2"
 bytemuck = "1"
 clap = { version = "4.6", features = ["derive"] }
+clap-verbosity-flag = "3"
 criterion = { version = "0.8", features = ["html_reports"] }
 dashmap = "6.2"
 delegate = "0.13"

@@ -23,7 +23,7 @@ macro_rules! gen_runner {
         pub(crate) fn run(
             args: $crate::CommonArgs,
             config: $algo_config,
-        ) -> ::kommandozeile::Result<()> {
+        ) -> ::anyhow::Result<()> {
             ::log::info!(
                 "Reading graph ({} bit) from: {:?}",
                 if args.use_32_bit { "32" } else { "64" },
@@ -42,7 +42,7 @@ macro_rules! gen_runner {
         fn run_<NI>(
             args: $crate::CommonArgs,
             config: $algo_config,
-        ) -> ::kommandozeile::Result<()>
+        ) -> ::anyhow::Result<()>
         where
             NI: Idx + ::std::hash::Hash,
         {
@@ -61,7 +61,7 @@ macro_rules! gen_runner {
         fn run_<NI>(
             args: $crate::CommonArgs,
             config: $algo_config,
-        ) -> ::kommandozeile::Result<()>
+        ) -> ::anyhow::Result<()>
         where
             NI: Idx + ::std::hash::Hash,
         {
@@ -81,7 +81,7 @@ macro_rules! gen_runner {
             args: $crate::CommonArgs,
             config: $algo_config,
             file_format: Format,
-        ) -> ::kommandozeile::Result<()>
+        ) -> ::anyhow::Result<()>
         where
             NI: Idx + ::std::hash::Hash,
             Format: InputCapabilities<NI>,
@@ -106,7 +106,7 @@ macro_rules! gen_runner {
             args: $crate::CommonArgs,
             config: $algo_config,
             file_format: Format,
-        ) -> ::kommandozeile::Result<()>
+        ) -> ::anyhow::Result<()>
         where
             NI: Idx + ::std::hash::Hash,
             Format: InputCapabilities<NI>,

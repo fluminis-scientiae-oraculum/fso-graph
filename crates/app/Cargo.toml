@@ -13,7 +13,10 @@ license.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+anyhow.workspace = true
 byte-slice-cast.workspace = true
+clap = { workspace = true }
+clap-verbosity-flag.workspace = true
 env_logger.workspace = true
 float-ord.workspace = true
 log.workspace = true
@@ -25,19 +28,6 @@ polars.workspace = true
 path = "../algos"
 version = "^0.3.2"
 features = ["clap"]
-
-[dependencies.kommandozeile]
-git = "https://github.com/knutwalker/kommandozeile"
-default-features = false
-rev = "18a7dbc73a0591985fd390ce655950bf9bb9f955"
-features = [
-    "args_glob_expand",
-    "args_file",
-    "clap_app_color",
-    "clap_verbose",
-    "setup_clap",
-    "clap_derive"
-]
 
 [[bin]]
 name = "app"
