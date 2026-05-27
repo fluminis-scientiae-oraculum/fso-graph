@@ -8,59 +8,60 @@ authors = [
     "Martin Junghanns <github@s1ck.dev>",
     "Paul Horn <developer@knutwalker.de>",
 ]
-rust-version = "1.70"
+rust-version = "1.82"
 repository = "https://github.com/neo4j-labs/graph"
 edition = "2021"
 license = "MIT"
 
 [workspace.dependencies]
-ahash = "0.8.3"
-arrow = "45.0.0"
-arrow-flight = "45.0.0"
-async-compression = { version = "0.3.15", features = ["tokio", "stream", "zstd"] }
-async-trait = "0.1.72"
+ahash = "0.8.12"
+arrow = "58"
+arrow-flight = "58"
+async-compression = { version = "0.4", features = ["tokio", "zstd"] }
+astral-tokio-tar = "0.6.2"
+async-trait = "0.1.89"
 atoi = "2.0.0"
-atomic = "0.5.3"
-atomic_float = "0.1.0"
-byte-slice-cast = "1.2.2"
-clap = { version = "4.3", features = ["derive"] }
-criterion = { version = "0.4.0", features = ["html_reports"] }
-dashmap = "5.5.0"
-delegate = "0.8.0"
-directories = "4.0"
-env_logger = "0.9.3"
+atomic = "0.6"
+atomic_float = "1.1"
+byte-slice-cast = "1.2"
+bytemuck = "1"
+clap = { version = "4.6", features = ["derive"] }
+criterion = { version = "0.8", features = ["html_reports"] }
+dashmap = "6.2"
+delegate = "0.13"
+directories = "6"
+env_logger = "0.11"
 fast-float2 = "0.2.3"
 float-ord = "0.3.2"
-futures = "0.3.28"
+futures = "0.3"
 fxhash = "0.2.1"
 gdl = "0.2.7"
-itertools = "0.10.5"
+itertools = "0.14"
 linereader = "0.4.0"
-log = "0.4.19"
-memmap2 = "0.5.10"
+log = "0.4"
+memmap2 = "0.9"
 nanorand = "0.7.0"
-num = "0.4.1"
-num_cpus = "1.16.0"
-num-format = "0.4.4"
-numpy = "0.17.2"
-page_size = "0.4.2"
-parking_lot = "0.12.1"
-pico-args = "0.5.0"
-polars = { version = "0.25.1", default_features = false, features = ["fmt"] }
-pyo3 = "0.17.3"
-pyo3-log = "0.7.0"
-rand = "0.8.5"
-rayon = "1.7.0"
-reqwest = { version = "0.11", features = ["stream"] }
-serde_json = "1.0.103"
-serde = { version = "1.0.174", features = ["derive"] }
-tap = "1.0.1"
-tempfile = "3.7.0"
-thiserror = "1.0.44"
-tokio = { version = "1.29.1", features = ["full"], default-features = true }
-tokio-tar = "0.3.1"
-tokio-util = {version = "0.7.8", features = ["io"] }
-tonic = "0.9"
+num = "0.4"
+num_cpus = "1.16"
+num-format = "0.4"
+numpy = "0.28"
+page_size = "0.6"
+parking_lot = "0.12"
+pico-args = "0.5"
+polars = { version = "0.53", default-features = false, features = ["fmt"] }
+pyo3 = "0.28"
+pyo3-log = "0.13"
+rand = "0.10"
+rayon = "1.12"
+reqwest = { version = "0.13", features = ["stream"] }
+serde_json = "1"
+serde = { version = "1", features = ["derive"] }
+tap = "1"
+tempfile = "3.27"
+thiserror = "2"
+tokio = { version = "1", features = ["full"], default-features = true }
+tokio-util = { version = "0.7", features = ["io"] }
+tonic = "0.14"
 
 [workspace.metadata.release]
 pre-release-commit-message = "Release {{crate_name}} {{version}}"

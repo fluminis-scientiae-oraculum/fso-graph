@@ -1,10 +1,11 @@
 #![allow(clippy::borrow_deref_ref)]
 
 use ::graph::prelude::Error as GError;
+use pyo3::conversion::IntoPyObjectExt;
 use pyo3::{
     exceptions::PyValueError,
-    prelude::{pymodule, IntoPy, PyErr, PyModule, PyObject, PyResult, Python},
-    PyErrArguments,
+    prelude::{pymodule, Bound, PyAny, PyErr, PyModule, PyResult, Python},
+    Py, PyErrArguments,
 };
 use pyo3_log::{Caching, Logger};
 
@@ -16,8 +17,8 @@ mod wcc;
 struct GraphError(GError);
 
 impl PyErrArguments for GraphError {
-    fn arguments(self, py: Python) -> PyObject {
-        self.0.to_string().into_py(py)
+    fn arguments(self, py: Python<'_>) -> Py<PyAny> {
+        self.0.to_string().into_py_any(py).unwrap()
     }
 }
 
@@ -29,7 +30,7 @@ impl From<GraphError> for PyErr {
 
 /// Python API for the graph crate
 #[pymodule]
-fn graph_mate(py: Python, m: &PyModule) -> PyResult<()> {
+fn graph_mate(py: Python<'_>, m: &Bound<'_, PyModule>) -> PyResult<()> {
     Logger::new(py, Caching::LoggersAndLevels)?
         .install()
         .unwrap();

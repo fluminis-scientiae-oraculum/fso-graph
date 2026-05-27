@@ -7,6 +7,37 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+### Security
+
+- Replace `tokio-tar 0.3.1` with `astral-tokio-tar 0.6.2` to address
+  RUSTSEC-2025-0093 / CVE-2025-62518 ("TARmageddon"), a tar archive
+  desync that lets a crafted archive smuggle additional entries past
+  the streaming reader.
+
+### Changed
+
+- Bump MSRV to 1.82.
+- Bump every workspace dependency to its latest crates.io release.
+  Notable major-version jumps with code adjustments:
+  - `pyo3 0.17 → 0.28` (Bound API migration in `graph_mate`)
+  - `numpy 0.17 → 0.28`, `pyo3-log 0.7 → 0.13`
+  - `arrow / arrow-flight 45 → 58`, `tonic 0.9 → 0.14`
+    (`graph_server` updated for new IPC writer + `DescriptorType`
+    APIs, new `poll_flight_info` trait method)
+  - `polars 0.25 → 0.53` (example rewritten to use the
+    `Column` / `*_reduce` APIs)
+  - `rand 0.8 → 0.10` (`gen_range` → `random_range`, `RngExt`
+    in scope at use sites)
+  - `thiserror 1 → 2`, `dashmap 5 → 6`, `delegate 0.8 → 0.13`,
+    `criterion 0.4 → 0.8`, `atomic 0.5 → 0.6` (new `NoUninit`
+    supertrait on `Idx`), `directories 4 → 6`, `env_logger 0.9 → 0.11`,
+    `reqwest 0.11 → 0.13`, `itertools 0.10 → 0.14`,
+    `tempfile 3.7 → 3.27`, `memmap2 0.5 → 0.9`,
+    `async-compression 0.3 → 0.4`, `clap 4.3 → 4.6`,
+    `atomic_float 0.1 → 1.1`.
+- Switch `criterion::black_box` to `std::hint::black_box` across
+  all benches.
+
 ## [graph_builder-v0.4.0](https://github.com/neo4j-labs/graph/tree/graph_builder-v0.4.0) - 2023-11-03
 
 [Full Changelog](https://github.com/neo4j-labs/graph/compare/graph_builder-v0.3.1...graph_builder-v0.4.0)

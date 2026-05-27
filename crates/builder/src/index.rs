@@ -5,6 +5,7 @@ use std::sync::atomic::Ordering;
 
 use atoi::FromRadix10;
 use atomic::Atomic;
+use bytemuck::NoUninit;
 
 pub trait Idx:
     Copy
@@ -19,6 +20,7 @@ pub trait Idx:
     + Sum
     + Sync
     + Sized
+    + NoUninit
     + 'static
 {
     fn new(idx: usize) -> Self;

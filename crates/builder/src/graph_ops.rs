@@ -216,7 +216,9 @@ pub trait ToUndirectedOp {
     ///
     /// // No layout specified, a default layput is chosen
     /// let un_graph = graph.to_undirected(None);
-    /// assert_eq!(un_graph.neighbors(0).as_slice(), &[2, 1, 2]);
+    /// let mut neighbors = un_graph.neighbors(0).copied().collect::<Vec<_>>();
+    /// neighbors.sort_unstable();
+    /// assert_eq!(neighbors, &[1, 2, 2]);
     ///
     /// // The `Sorted` layout
     /// let un_graph = graph.to_undirected(CsrLayout::Sorted);
