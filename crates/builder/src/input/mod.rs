@@ -41,7 +41,7 @@ pub trait ParseValue: Default + Sized {
     /// # Example
     ///
     /// ```
-    /// use graph_builder::input::ParseValue;
+    /// use fso_graph_builder::input::ParseValue;
     ///
     /// let bytes = "13.37".as_bytes();
     ///

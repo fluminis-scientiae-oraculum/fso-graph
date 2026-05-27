@@ -1,16 +1,16 @@
 #![warn(unused_crate_dependencies)]
 //! A library that provides a collection of high-performant graph algorithms.
-//! This crate builds on top of the [graph_builder](https://docs.rs/graph_builder/latest/)
+//! This crate builds on top of the [fso-graph-builder](https://docs.rs/fso-graph-builder/latest/)
 //! crate, which can be used as a building block for custom graph algorithms.
 //!
-//! `graph_builder` provides implementations for directed and undirected graphs.
+//! `fso-graph-builder` provides implementations for directed and undirected graphs.
 //! Graphs can be created programatically or read from custom input formats in a
 //! type-safe way. The library uses [rayon](https://github.com/rayon-rs/rayon)
 //! to parallelize all steps during graph creation. The implementation uses a
 //! Compressed-Sparse-Row (CSR) data structure which is tailored for fast and
 //!  concurrent access to the graph topology.
 //!
-//! `graph` provides graph algorithms which take graphs created using `graph_builder`
+//! `graph` provides graph algorithms which take graphs created using `fso-graph-builder`
 //! as input. The algorithm implementations are designed to run efficiently on
 //! large-scale graphs with billions of nodes and edges.
 //!
@@ -78,7 +78,7 @@
 //! assert_eq!(graph.neighbors(1).as_slice(), &[0, 2, 3]);
 //! ```
 //!
-//! Check out the [graph_builder](https://docs.rs/graph_builder/latest/) crate for
+//! Check out the [fso-graph-builder](https://docs.rs/fso-graph-builder/latest/) crate for
 //! for more examples on how to build graphs from various input formats.
 //!
 //! # How to run algorithms

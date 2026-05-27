@@ -9,7 +9,7 @@ on:
         type: choice
         options:
           - graph
-          - graph_builder
+          - fso-graph-builder
           - graph_mate
           - all
       version:

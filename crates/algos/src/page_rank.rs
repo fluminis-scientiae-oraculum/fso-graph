@@ -1,7 +1,7 @@
 use crate::{prelude::*, DEFAULT_PARALLELISM};
 
 use atomic_float::AtomicF64;
-use graph_builder::SharedMut;
+use fso_graph_builder::SharedMut;
 use log::info;
 use rayon::prelude::*;
 

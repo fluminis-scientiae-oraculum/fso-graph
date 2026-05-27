@@ -42,7 +42,7 @@
 //! identifier, one can use the builder like so:
 //!
 //! ```
-//! use graph_builder::prelude::*;
+//! use fso_graph_builder::prelude::*;
 //!
 //! let graph: DirectedCsrGraph<usize> = GraphBuilder::new()
 //!     .edges(vec![(0, 1), (0, 2), (1, 2), (1, 3), (2, 3)])
@@ -62,7 +62,7 @@
 //! change the expected types:
 //!
 //! ```
-//! use graph_builder::prelude::*;
+//! use fso_graph_builder::prelude::*;
 //!
 //! let graph: UndirectedCsrGraph<u32> = GraphBuilder::new()
 //!     .csr_layout(CsrLayout::Sorted)
@@ -80,7 +80,7 @@
 //! Edges can have attached values to represent weighted graphs:
 //!
 //! ```
-//! use graph_builder::prelude::*;
+//! use fso_graph_builder::prelude::*;
 //!
 //! let graph: UndirectedCsrGraph<u32, (), f32> = GraphBuilder::new()
 //!     .csr_layout(CsrLayout::Sorted)
@@ -105,7 +105,7 @@
 //! ```
 //! use std::path::PathBuf;
 //!
-//! use graph_builder::prelude::*;
+//! use fso_graph_builder::prelude::*;
 //!
 //! let path = [env!("CARGO_MANIFEST_DIR"), "resources", "example.el"]
 //!     .iter()
@@ -135,7 +135,7 @@
 //! ```
 //! use std::path::PathBuf;
 //!
-//! use graph_builder::prelude::*;
+//! use fso_graph_builder::prelude::*;
 //!
 //! let path = [env!("CARGO_MANIFEST_DIR"), "resources", "example.wel"]
 //!     .iter()
@@ -192,7 +192,7 @@
 //! One can use [`DirectedCsrGraph`] or [`UndirectedCsrGraph`] to build a CSR-based graph:
 //!
 //! ```
-//! use graph_builder::prelude::*;
+//! use fso_graph_builder::prelude::*;
 //!
 //! let graph: DirectedCsrGraph<usize> = GraphBuilder::new()
 //!     .edges(vec![(0, 1), (0, 2), (1, 2), (1, 3), (2, 3)])
@@ -229,7 +229,7 @@
 //! One can use [`DirectedALGraph`] or [`UndirectedALGraph`] to build a Adjacency-List-based graph:
 //!
 //! ```
-//! use graph_builder::prelude::*;
+//! use fso_graph_builder::prelude::*;
 //!
 //! let graph: DirectedALGraph<usize> = GraphBuilder::new()
 //!     .edges(vec![(0, 1), (0, 2), (1, 2), (1, 3), (2, 3)])

@@ -1,13 +1,16 @@
 [package]
-name = "graph_builder"
+name = "fso-graph-builder"
 version = "0.4.1"
-description = "A building block for high-performant graph algorithms."
+description = "A building block for high-performant graph algorithms. Community-maintained fork of graph_builder."
 keywords = ["graph", "builder", "csr", "algorithms"]
 authors.workspace = true
 rust-version.workspace = true
 repository.workspace = true
 edition.workspace = true
 license.workspace = true
+
+[lib]
+name = "fso_graph_builder"
 
 [dependencies]
 atoi.workspace = true

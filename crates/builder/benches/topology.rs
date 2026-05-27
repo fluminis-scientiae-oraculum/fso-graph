@@ -1,10 +1,10 @@
 use criterion::measurement::WallTime;
 use criterion::*;
-use graph_builder::graph::csr::Csr;
-use graph_builder::prelude::*;
+use fso_graph_builder::graph::csr::Csr;
+use fso_graph_builder::prelude::*;
 use std::hint::black_box;
 
-use graph_builder::graph::adj_list::{AdjacencyList, DirectedALGraph};
+use fso_graph_builder::graph::adj_list::{AdjacencyList, DirectedALGraph};
 
 mod common;
 use common::*;

@@ -1,11 +1,12 @@
-# graph_builder
+# fso-graph-builder
 
-> **Fork notice.** This crate is published on crates.io as `fso-graph-builder`,
-> a community-maintained fork of [`graph_builder`](https://crates.io/crates/graph_builder)
-> by [neo4j-labs/graph](https://github.com/neo4j-labs/graph). Fork lives at
+> **Fork notice.** Community-maintained fork of
+> [`graph_builder`](https://crates.io/crates/graph_builder) by
+> [neo4j-labs/graph](https://github.com/neo4j-labs/graph). Fork lives at
 > [fluminis-scientiae-oraculum/fso-graph](https://github.com/fluminis-scientiae-oraculum/fso-graph)
-> and is maintained by Aditya Kresna. Upstream attribution preserved in
-> `LICENSE` and the authors list of each crate manifest.
+> and is maintained by Aditya Kresna. Rust import path is
+> `fso_graph_builder::*`. Upstream attribution preserved in `LICENSE` and
+> the authors list of each crate manifest.
 
 A library that can be used as a building block for high-performant graph
 algorithms.
@@ -46,7 +47,7 @@ For example, to create a directed graph that uses `usize` as node
 identifier, one can use the builder like so:
 
 ```rust
-use graph_builder::prelude::*;
+use fso_graph_builder::prelude::*;
 
 let graph: DirectedCsrGraph<usize> = GraphBuilder::new()
     .edges(vec![(0, 1), (0, 2), (1, 2), (1, 3), (2, 3)])
@@ -66,7 +67,7 @@ To build an undirected graph using `u32` as node identifer, we only need to
 change the expected types:
 
 ```rust
-use graph_builder::prelude::*;
+use fso_graph_builder::prelude::*;
 
 let graph: UndirectedCsrGraph<u32> = GraphBuilder::new()
     .csr_layout(CsrLayout::Sorted)
@@ -84,7 +85,7 @@ assert_eq!(graph.neighbors(1).as_slice(), &[0, 2, 3]);
 Edges can have attached values to represent weighted graphs:
 
 ```rust
-use graph_builder::prelude::*;
+use fso_graph_builder::prelude::*;
 
 let graph: UndirectedCsrGraph<u32, (), f32> = GraphBuilder::new()
     .csr_layout(CsrLayout::Sorted)
@@ -109,7 +110,7 @@ each line of a file contains an edge of the graph.
 ```rust
 use std::path::PathBuf;
 
-use graph_builder::prelude::*;
+use fso_graph_builder::prelude::*;
 
 let path = [env!("CARGO_MANIFEST_DIR"), "resources", "example.el"]
     .iter()
@@ -139,7 +140,7 @@ value type needs to implement [`crate::input::ParseValue`].
 ```rust
 use std::path::PathBuf;
 
-use graph_builder::prelude::*;
+use fso_graph_builder::prelude::*;
 
 let path = [env!("CARGO_MANIFEST_DIR"), "resources", "example.wel"]
     .iter()
@@ -196,7 +197,7 @@ graph from multiple threads is safe, as there will be never be a concurrent muta
 One can use [`DirectedCsrGraph`] or [`UndirectedCsrGraph`] to build a CSR-based graph:
 
 ```rust
-use graph_builder::prelude::*;
+use fso_graph_builder::prelude::*;
 
 let graph: DirectedCsrGraph<usize> = GraphBuilder::new()
     .edges(vec![(0, 1), (0, 2), (1, 2), (1, 3), (2, 3)])
@@ -233,7 +234,7 @@ parallel read and write operations on the graph topology.
 One can use [`DirectedALGraph`] or [`UndirectedALGraph`] to build a Adjacency-List-based graph:
 
 ```rust
-use graph_builder::prelude::*;
+use fso_graph_builder::prelude::*;
 
 let graph: DirectedALGraph<usize> = GraphBuilder::new()
     .edges(vec![(0, 1), (0, 2), (1, 2), (1, 3), (2, 3)])

@@ -4,4 +4,4 @@ pub use crate::triangle_count::*;
 pub use crate::utils::*;
 pub use crate::wcc::*;
 
-pub use graph_builder::prelude::*;
+pub use fso_graph_builder::prelude::*;

@@ -7,7 +7,7 @@ use std::{
 use directories::ProjectDirs;
 use futures::{StreamExt, TryStreamExt};
 
-use graph_builder::prelude::Idx;
+use fso_graph_builder::prelude::Idx;
 use rand::prelude::*;
 
 type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;

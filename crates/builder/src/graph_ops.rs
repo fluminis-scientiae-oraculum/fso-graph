@@ -63,7 +63,7 @@ pub trait ForEachNodeParallelOp<NI: Idx> {
     /// # Example
     ///
     /// ```
-    /// # use graph_builder::prelude::*;
+    /// # use fso_graph_builder::prelude::*;
     /// # use std::ops::Range;
     /// let graph: DirectedCsrGraph<u32> = GraphBuilder::new()
     ///     .edges(vec![(0, 1), (0, 2), (1, 2)])
@@ -104,7 +104,7 @@ pub trait ForEachNodeParallelByPartitionOp<NI: Idx> {
     /// # Example
     ///
     /// ```
-    /// # use graph_builder::prelude::*;
+    /// # use fso_graph_builder::prelude::*;
     /// # use std::ops::Range;
     /// let graph: DirectedCsrGraph<u32> = GraphBuilder::new()
     ///     .edges(vec![(0, 1), (0, 2), (1, 2)])
@@ -145,7 +145,7 @@ pub trait RelabelByDegreeOp<NI, EV> {
     /// # Example
     ///
     /// ```
-    /// use graph_builder::prelude::*;
+    /// use fso_graph_builder::prelude::*;
     ///
     /// let mut graph: UndirectedCsrGraph<u32> = GraphBuilder::new()
     ///     .edges(vec![(0, 1), (1, 2), (1, 3), (3, 0)])
@@ -184,7 +184,7 @@ pub trait ToUndirectedOp {
     /// # Example
     ///
     /// ```
-    /// use graph_builder::prelude::*;
+    /// use fso_graph_builder::prelude::*;
     ///
     /// let graph: DirectedCsrGraph<u32> = GraphBuilder::new()
     ///     .edges(vec![(0, 1), (2, 0)])
@@ -208,7 +208,7 @@ pub trait ToUndirectedOp {
     /// # Example
     ///
     /// ```
-    /// use graph_builder::prelude::*;
+    /// use fso_graph_builder::prelude::*;
     ///
     /// let graph: DirectedCsrGraph<u32> = GraphBuilder::new()
     ///     .edges(vec![(0, 2), (1, 0), (2, 0)])
@@ -344,7 +344,7 @@ where
     /// # Example
     ///
     /// ```
-    /// # use graph_builder::prelude::*;
+    /// # use fso_graph_builder::prelude::*;
     /// # use std::ops::Range;
     /// let graph: UndirectedCsrGraph<u32> = GraphBuilder::new()
     ///     .edges(vec![(0, 1), (0, 2), (0, 3), (0, 3)])
@@ -381,7 +381,7 @@ where
     /// # Example
     ///
     /// ```
-    /// # use graph_builder::prelude::*;
+    /// # use fso_graph_builder::prelude::*;
     /// # use std::ops::Range;
     /// let graph: DirectedCsrGraph<u32> = GraphBuilder::new()
     ///     .edges(vec![(0, 1), (0, 2), (2, 1), (2, 3)])
@@ -418,7 +418,7 @@ where
     /// # Example
     ///
     /// ```
-    /// # use graph_builder::prelude::*;
+    /// # use fso_graph_builder::prelude::*;
     /// # use std::ops::Range;
     /// let graph: DirectedCsrGraph<u32> = GraphBuilder::new()
     ///     .edges(vec![(1, 0), (1, 2), (2, 0), (3, 2)])
