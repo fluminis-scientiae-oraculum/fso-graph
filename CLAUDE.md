@@ -1,7 +1,7 @@
 
 ## AMem (fso-amem MCP)
 
-AMEM is mandatory for this repo. (v3)
+AMEM is mandatory for this repo. (v4)
 
 Per-unit-of-work flow:
   bootstrap -> recall -> [preflight if risky] -> work
@@ -15,6 +15,11 @@ Tool discipline:
   Use filterKinds=[constraint,decision,admin_assertion,human_instruction] to cut noise
   when you only need directive-class records. Honor warningFlags (Contested /
   StalenessRiskHigh / DirectiveViolation). Verify pendingVerify entries that you reused.
+  v0.6.0 defaults: `limit` defaults to 5 (was 12). Bump to 10/20/50 explicitly when
+  you genuinely need broader recall (cap is 50). `mode` defaults to `full`; pass
+  `mode="headline"` for cheap context-priming hooks and broad first-pass scans —
+  bodies clip to ~200 chars + `"... [+N more]"` marker. Re-recall with `mode="full"`
+  (or omit) once you've identified the records that need verbatim bodies.
 - Call preflight before risky, destructive, or sensitive work. Stop is only emitted when
   a Canonical directive matches BOTH by token-overlap AND by semantic cosine (ADR-023).
   Token-only matches downgrade to Warn — but Warn still demands review.
