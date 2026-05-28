@@ -7,6 +7,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+## [fso-graph-v0.3.4] - 2026-05-28
+
+### Fixed
+
+- README badge row drops the inherited PyPI badge that pointed at the
+  upstream `graph-mate` package; the fork has no PyPI counterpart yet,
+  so the badge was misleading on the crates.io page for fso-graph 0.3.3.
+
 ## [fso-graph-builder-v0.4.3] - 2026-05-28
 
 ### Added

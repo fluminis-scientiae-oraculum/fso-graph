@@ -1,6 +1,6 @@
 [package]
 name = "fso-graph"
-version = "0.3.3"
+version = "0.3.4"
 description = "A library of high-performant graph algorithms. Community-maintained fork of graph."
 keywords = ["graph", "algorithms", "parallel"]
 categories = ["algorithms", "data-structures", "concurrency", "science"]

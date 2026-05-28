@@ -1,11 +1,9 @@
-# fso-graph &emsp; [![GitHub Actions workflow status]][actions] [![Latest version on crates.io]][crates.io] [![Latest version on PyPI]][pypi.org] [![License: MIT]][license]
+# fso-graph &emsp; [![GitHub Actions workflow status]][actions] [![Latest version on crates.io]][crates.io] [![License: MIT]][license]
 
 [GitHub Actions workflow status]: https://img.shields.io/github/actions/workflow/status/fluminis-scientiae-oraculum/fso-graph/rust.yml?branch=main&label=CI&style=flat-square
 [actions]: https://github.com/fluminis-scientiae-oraculum/fso-graph/actions/workflows/rust.yml?query=branch%3Amain
 [Latest version on crates.io]: https://img.shields.io/crates/v/fso-graph?style=flat-square
 [crates.io]: https://crates.io/crates/fso-graph/
-[Latest version on PyPI]: https://img.shields.io/pypi/v/graph-mate?style=flat-square
-[pypi.org]: https://pypi.org/project/graph-mate/
 [License: MIT]: https://img.shields.io/crates/l/fso-graph?style=flat-square
 [license]: https://choosealicense.com/licenses/mit/
 
