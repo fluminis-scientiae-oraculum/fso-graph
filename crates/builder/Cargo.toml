@@ -1,8 +1,11 @@
 [package]
 name = "fso-graph-builder"
-version = "0.4.2"
+version = "0.4.3"
 description = "A building block for high-performant graph algorithms. Community-maintained fork of graph_builder."
 keywords = ["graph", "builder", "csr", "algorithms"]
+categories = ["data-structures", "algorithms", "parser-implementations", "concurrency"]
+homepage = "https://github.com/fluminis-scientiae-oraculum/fso-graph"
+documentation = "https://docs.rs/fso-graph-builder"
 authors.workspace = true
 rust-version.workspace = true
 repository.workspace = true

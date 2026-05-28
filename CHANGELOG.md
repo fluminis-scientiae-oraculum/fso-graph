@@ -7,6 +7,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Unreleased
 
+## [fso-graph-builder-v0.4.3] - 2026-05-28
+
+### Added
+
+- `categories`, `homepage`, and `documentation` fields on the crate
+  manifest for better crates.io discoverability and to surface the
+  fork's repo URL alongside the upstream-inherited `repository`.
+
 ## [fso-graph-v0.3.3 + fso-graph-builder-v0.4.2] - 2026-05-28
 
 This release republishes the workspace on crates.io under new names
@@ -24,6 +32,12 @@ and the authors list of each crate manifest.
   bump from upstream 0.4.1).
 - `graph_app`, `graph_mate`, `graph_server` remain `publish = false` and
   keep their existing internal names.
+
+### Added
+
+- `categories`, `homepage`, and `documentation` manifest fields on
+  fso-graph for crates.io discoverability. (Note: fso-graph-builder
+  v0.4.2 was published without these; v0.4.3 adds them.)
 
 ### Security
 

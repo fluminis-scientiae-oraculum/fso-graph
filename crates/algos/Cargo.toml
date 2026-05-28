@@ -3,6 +3,9 @@ name = "fso-graph"
 version = "0.3.3"
 description = "A library of high-performant graph algorithms. Community-maintained fork of graph."
 keywords = ["graph", "algorithms", "parallel"]
+categories = ["algorithms", "data-structures", "concurrency", "science"]
+homepage = "https://github.com/fluminis-scientiae-oraculum/fso-graph"
+documentation = "https://docs.rs/fso-graph"
 authors.workspace = true
 rust-version.workspace = true
 repository.workspace = true
@@ -16,7 +19,7 @@ name = "fso_graph"
 ahash.workspace = true
 atomic_float.workspace = true
 clap = { workspace = true, optional = true }
-fso-graph-builder = { path = "../builder", version = "^0.4.2" }
+fso-graph-builder = { path = "../builder", version = "^0.4.3" }
 log.workspace = true
 num-format.workspace = true
 nanorand.workspace = true
@@ -25,7 +28,7 @@ serde = { workspace = true, optional = true }
 
 [dev-dependencies]
 env_logger.workspace = true
-fso-graph-builder = { path = "../builder", version = "^0.4.2", features = ["gdl"] }
+fso-graph-builder = { path = "../builder", version = "^0.4.3", features = ["gdl"] }
 log.workspace = true
 polars.workspace = true
 
